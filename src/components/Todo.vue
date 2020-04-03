@@ -5,7 +5,7 @@
         v-for="(item, index) in list"
         :key="item.index"
         :item="item"
-        @click="onItemSelected(index, item)"
+        @click="(result) => onItemSelected(index, result)"
       />
     </div>
     <div class="btn-add-wrapper">

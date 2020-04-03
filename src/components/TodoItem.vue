@@ -6,7 +6,7 @@
       class="checkbox"
       :checked="item.checked"
       type="checkbox"
-      @click.capture="$emit('click')"
+      @click="$emit('click', item)"
     >
     <span
       class="index"
@@ -71,6 +71,7 @@ export default {
        * 取消编辑
        */
       cancelEdit() {
+        this.$emit('click', this.item)
         this.editType = 'idle'
       }
     }
@@ -114,12 +115,6 @@ export default {
   user-select: none;
 }
 
-.index-tittle,
-.index-content {
-  box-sizing: border-box;
-  border: 1px dashed #999999;
-}
-
 .title {
   text-align: center;
   color: #333333;
@@ -134,6 +129,14 @@ export default {
   font-size: 1rem;
   color: #666666;
   user-select: none;
+}
+
+.input {
+  font-size: .8rem;
+  color: inherit;
+  border-radius: 2px;
+  border-width: 0;
+  padding: 8px 8px;
 }
 
 
