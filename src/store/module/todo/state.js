@@ -1,6 +1,10 @@
+import {
+    getTodoList,
+} from '../../../utils/storage'
+
 export default {
     
-    list: [], // todo list
+    list: getTodoList(), // todo list
 
     undoList: [],
 
