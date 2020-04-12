@@ -10,6 +10,20 @@
     </div>
     <div class="btn-add-wrapper">
       <div
+        :class="{'btn-undo--disable': !canUndo}"
+        class="btn-undo"
+        @click="undo"
+      >
+        undo
+      </div>
+      <div
+        :class="{'btn-undo--disable': !canRedo}"
+        class="btn-redo"
+        @click="redo"
+      >
+        redo
+      </div>
+      <div
         class="btn-add"
         @click="addNewTodo"
       />
@@ -23,7 +37,7 @@ import TodoItem from '@/components/TodoItem.vue'
 
 import {
   mapGetters,
-  mapMutations,
+  mapActions,
 } from 'vuex';
 
 export default {
@@ -36,28 +50,36 @@ export default {
   computed: {
     ...mapGetters([
       'list',
+      'canUndo',
+      'canRedo',
     ]),
   },
 
   methods: {
-    ...mapMutations([
+    ...mapActions([
+      'undo',
+      'redo',
       'add',
       'remove',
       'update',
     ]),
 
     addNewTodo() {
-      this.add({
+      const todoData = {
         index: this.list.length,
-        title: `TITLE - ${this.list.length}`,
-        content: `CONTENT - ${this.list.length}`,
-        checked: false,
-      })
+        data: {
+          index: this.list.length,
+          title: `TITLE - ${this.list.length}`,
+          content: `CONTENT - ${this.list.length}`,
+          checked: false,
+        }
+      }
+      this.add(todoData)
     },
 
     onItemSelected(index, item) {
       item.checked = !item.checked
-      this.update({ index, newData: item })
+      this.update({ index, data: item })
     }
   },
 
@@ -81,6 +103,7 @@ export default {
   border-radius: 50%;
   box-shadow: 4px 4px 13px rgba(0, 0, 0, .3);
   cursor: pointer;
+  user-select: none;
 }
 
 .btn-add::before {
@@ -105,5 +128,27 @@ export default {
   background-color: #FFFFFF;
   border-radius: 3px;
   transform: translate(-50%, -50%);
+}
+
+.btn-undo,
+.btn-redo {
+  color: #FFFFFF;
+  font-size: .8rem;
+  font-weight: 600;
+  background-color: #333333;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  line-height: 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  text-align: center;
+  box-shadow: 4px 4px 13px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  user-select: none;
+}
+ .btn-undo--disable,
+ .btn-redo--disable {
+    background-color: #999999;
+    transition: all .3s;
 }
 </style>

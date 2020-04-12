@@ -17,11 +17,14 @@
       @dblclick="onEdit('title')"
     >{{ item.title || ' ' }}</span>
     <input
+      ref="inputTitle"
       v-show="editType === 'title'" 
       v-model="item.title"
       type="text"
       autofocus
+      @keyup.13="cancelEdit"
       @blur="cancelEdit"
+      @focus="onFocus"
       class="input input-title"
     >
     <span
@@ -60,6 +63,15 @@ export default {
     },
 
     methods: {
+
+      onBlur() {
+        
+      },
+
+      onFocus() {
+
+      },
+
       /**
        * 编辑内容
        */

@@ -9,7 +9,7 @@ export function getTodoList() {
         if (!data) return []
         return JSON.parse(data)
     } catch (error) {
-        console.error('TODO_LIST', error)
+        console.log('TODO_LIST', error)
         return []
     }
 }
