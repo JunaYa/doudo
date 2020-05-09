@@ -2,12 +2,10 @@
   <div
     class="item"
   >
-    <input
-      class="checkbox"
+    <Checkbox
       :checked="item.checked"
-      type="checkbox"
       @click="$emit('click', item)"
-    >
+    />
     <span
       class="index"
     >{{ item.index || 0 }}</span>
@@ -44,8 +42,13 @@
 </template>
 
 <script>
+import Checkbox from '@/components/nested/Checkbox.vue'
+
 export default {
     name: 'TodoItem',
+    components: {
+      Checkbox,
+    },
     props: {
         item: {
             type: Object,
@@ -111,19 +114,11 @@ export default {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, .2);
 }
 
-.checkbox {
-  margin-right: 8px;
-  background-color: #333333;
-  padding: 8px;
-  cursor: pionter;
-  user-select: none;
-}
-
 .index {
   text-align: left;
   color: #666666;
   font-size: 1rem;
-  margin-right: 8px;
+  margin: 0 8px;
   user-select: none;
 }
 
