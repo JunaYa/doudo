@@ -1,0 +1,51 @@
+
+// flex-layout
+
+@mixin f-r {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin f-r-b {
+    @include f-r;
+    justify-content: space-between;
+}
+
+@mixin f-r-c {
+    @include f-r;
+    justify-content: center;
+}
+
+@mixin f-r-a {
+    @include f-r;
+    justify-content: space-around;
+}
+
+@mixin f-r-e {
+    @include f-r;
+    justify-content: space-evenly;
+}
+
+// button
+$button-height: 48px;
+
+@mixin button-base() {
+    // @include typography(button);
+    // @include ripple-surface;
+    // @include ripple-radius-bounded;
+  
+    display: inline-flex;
+    position: relative;
+    height: $button-height;
+    border: none;
+    vertical-align: middle;
+  
+    &:hover { cursor: pointer; }
+  
+    &:disabled {
+      color: $button-color-disabled;
+      cursor: default;
+      pointer-events: none;
+    }
+  }

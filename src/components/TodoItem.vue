@@ -94,24 +94,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
 .item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include f-r;
   justify-content: flex-start;
   line-height: 2.4rem;
-  background-color: antiquewhite;
   padding: 4px 16px;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   border-radius: 2px;
-  cursor: pointer;
   user-select: none;
-}
-
-.item:hover {
-  background-color: #dddddd;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, .2);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, .2);
+  }
 }
 
 .index {
@@ -124,7 +122,7 @@ export default {
 
 .title {
   text-align: center;
-  color: #333333;
+  color: $text-color-black;
   font-size: 1rem;
   font-weight: 500;
   margin-right: 16px;
