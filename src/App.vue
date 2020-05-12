@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <Todo msg="Welcome to Your Vue.js App" />
+    <Todo v-show="false" />
+    <SignIn />
   </div>
 </template>
 
 <script>
+import SignIn from './pages/sigin/SignIn.vue'
 import Todo from './components/Todo.vue'
 
 export default {
   name: 'App',
   components: {
-    Todo
+    SignIn,
+    Todo,
   }
 }
 </script>
 
 <style>
+body {
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 :root {
   --button-width: 2.2rem;
