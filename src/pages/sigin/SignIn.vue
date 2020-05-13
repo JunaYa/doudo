@@ -47,8 +47,9 @@
           >
           <button 
             class="form__button button submit"
-            @click="onSignUp">
-            SIGN UP
+            @click="onSignUp"
+          >
+            {{ $t('sign.signup') }}
           </button>
         </form>
       </div>
@@ -94,8 +95,9 @@
           <a class="form__link">Forgot your password?</a>
           <button 
             class="form__button button submit"
-            @click="onSingIn">
-            SIGN IN
+            @click="onSingIn"
+          >
+            {{ $t('sign.signin') }}
           </button>
         </form>
       </div>
@@ -104,8 +106,14 @@
         id="switch-cnt"
         class="switch"
       >
-        <div ref="switchCircle1" class="switch__circle" />
-        <div ref="switchCircle2" class="switch__circle switch__circle--t" />
+        <div
+          ref="switchCircle1"
+          class="switch__circle"
+        />
+        <div
+          ref="switchCircle2"
+          class="switch__circle switch__circle--t"
+        />
         <div
           ref="switchC1"
           id="switch-c1"
@@ -117,8 +125,11 @@
           <p class="switch__description description">
             To keep connected with us please login with your personal info
           </p>
-          <button class="switch__button button switch-btn" @click="onSwitch">
-            SIGN IN
+          <button
+            class="switch__button button switch-btn"
+            @click="onSwitch"
+          >
+            {{ $t('sign.signin') }}
           </button>
         </div>
         <div
@@ -132,8 +143,11 @@
           <p class="switch__description description">
             Enter your personal details and start journey with us
           </p>
-          <button class="switch__button button switch-btn" @click="onSwitch">
-            SIGN UP
+          <button
+            class="switch__button button switch-btn"
+            @click="onSwitch"
+          >
+            {{ $t('sign.signup') }}
           </button>
         </div>
       </div>
