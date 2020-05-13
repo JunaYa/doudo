@@ -2,6 +2,7 @@
   <div class="main-wrapper">
     <div class="main">
       <div
+        ref="aContainer"
         id="a-container"
         class="container a-container"
       >
@@ -52,6 +53,7 @@
         </form>
       </div>
       <div
+        ref="bContainer"
         id="b-container"
         class="container b-container"
       >
@@ -100,12 +102,12 @@
       <div
         ref="switchCnt"
         id="switch-cnt"
-        :class="is-gs"
         class="switch"
       >
-        <div class="switch__circle" />
-        <div class="switch__circle switch__circle--t" />
+        <div ref="switchCircle1" class="switch__circle" />
+        <div ref="switchCircle2" class="switch__circle switch__circle--t" />
         <div
+          ref="switchC1"
           id="switch-c1"
           class="switch__container"
         >
@@ -115,14 +117,14 @@
           <p class="switch__description description">
             To keep connected with us please login with your personal info
           </p>
-          <button class="switch__button button switch-btn">
+          <button class="switch__button button switch-btn" @click="onSwitch">
             SIGN IN
           </button>
         </div>
         <div
+          ref="switchC2"
           id="switch-c2"
-          :class="isSignin ? '' : 'is-hidden'"
-          class="switch__container"
+          class="switch__container is-hidden"
         >
           <h2 class="switch__title title">
             Hello Friend !
@@ -157,21 +159,17 @@ export default {
             setTimeout(function(){
                 this.$refs.switchCnt.classList.remove("is-gx");
             }, 1500)
-            this.$refs.switchCnt.classList.toggle("is-txr");
-            const switchCircle = document.querySelectorAll('switch__circle')
-            switchCircle[0].classList.toggle("is-txr");
-            switchCircle[1].classList.toggle("is-txr");
 
-            let switchC1 = document.querySelector("#switch-c1");
-            let switchC2 = document.querySelector("#switch-c2");
-            let aContainer = document.querySelector("#a-container");
-            let bContainer = document.querySelector("#b-container");
-            
-            switchC1.classList.toggle("is-hidden");
-            switchC2.classList.toggle("is-hidden");
-            aContainer.classList.toggle("is-txl");
-            bContainer.classList.toggle("is-txl");
-            bContainer.classList.toggle("is-z200");
+            this.$refs.switchCnt.classList.toggle("is-txr");
+            this.$refs.switchCircle1.classList.toggle("is-txr");
+            this.$refs.switchCircle2.classList.toggle("is-txr");
+
+            this.$refs.switchC1.classList.toggle("is-hidden");
+            this.$refs.switchC2.classList.toggle("is-hidden");
+            this.$refs.aContainer.classList.toggle("is-txl");
+            this.$refs.bContainer.classList.toggle("is-txl");
+            this.$refs.bContainer.classList.toggle("is-z200");
+
         },
         onSingIn(e) {
             e.preventDefault()
