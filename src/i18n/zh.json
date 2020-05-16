@@ -1,6 +1,19 @@
 {
     "sign": {
         "signin": "登录",
-        "signup": "注册"
+        "signup": "注册",
+        "welcome-back": "欢迎回来!",
+        "welcome-des": "登录您的账户信息随时找我们联系",
+        "start-yours": "进入您的详情页与我们一起起航",
+        "sign-title": "登录网站",
+        "create-account": "创建新账户",
+        "register-email": "或者使用邮箱注册",
+        "hello-friends": "你好朋友",
+        "forgot-password": "忘记密码？",
+        "form": {
+            "name": "姓名",
+            "email": "邮箱",
+            "password": "密码"
+        }
     }
 }

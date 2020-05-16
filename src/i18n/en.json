@@ -1,6 +1,19 @@
 {
     "sign": {
         "signin": "SignIn",
-        "signup": "SignUp"
+        "signup": "SignUp",
+        "welcome-back": "Welcome Back !",
+        "welcome-des": "To keep connected with us please login with your personal info",
+        "start-yours": "Enter your personal details and start journey with us",
+        "sign-title": "Sign in to Website",
+        "create-account": "Create Account",
+        "register-email": "or use email for registration",
+        "hello-friends": "Hello Friend !",
+        "forgot-password": "Forgot your password?",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "password": "Password"
+        }
     }
 }
