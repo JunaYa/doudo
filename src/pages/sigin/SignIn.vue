@@ -31,16 +31,19 @@
           </div>
           <span class="form__span">{{ $t('sign.register-email') }}</span>
           <input
+            v-model="formSignUp.nickname"
             class="form__input"
             type="text"
             :placeholder="$t('sign.form.name')"
           >
           <input
+            v-model="formSignUp.email"
             class="form__input"
             type="text"
             :placeholder="$t('sign.form.email')"
           >
           <input
+            v-model="formSignUp.password"
             class="form__input"
             type="Password"
             :placeholder="$t('sign.form.password')"
@@ -83,14 +86,16 @@
           </div>
           <span class="form__span">{{ $t('sign.register-email') }}</span>
           <input
+            v-model="formSignIn.nickname"
             class="form__input"
             type="text"
-            placeholder="Email"
+            :placeholder="$t('sign.form.name')"
           >
           <input
+            v-model="formSignIn.password"
             class="form__input"
             type="Password"
-            placeholder="Password"
+            :placeholder="$t('sign.form.password')"
           >
           <a class="form__link">{{ $t('sign.forgot-password') }}</a>
           <button 
@@ -156,11 +161,22 @@
 </template>
 
 <script>
+import api from '@/api/index.js';
+
 export default {
     name: 'SignIn',
     data() {
         return {
             isSignin: false, // false: signin true: signup 
+            formSignIn: {
+              nickname: '',
+              password: '',
+            },
+            formSignUp: {
+              nickname: '',
+              email: '',
+              password: '',
+            }
         }
     },
     methods: {
@@ -186,9 +202,19 @@ export default {
 
         },
         onSingIn(e) {
+            api.login(this.formSignIn).then(res => {
+              console.log(res)
+            }).catch(error => {
+              console.log(error)
+            })
             e.preventDefault()
         },
         onSignUp(e) {
+            api.register(this.formSignUp).then(res => {
+              console.log(res)
+            }).catch(error => {
+              console.log(error)
+            })
             e.preventDefault()
         },
     },
