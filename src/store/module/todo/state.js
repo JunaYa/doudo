@@ -1,4 +1,4 @@
-import { getTodoList } from "../../../utils/storage";
+import { getTodoList } from '../../../utils/storage';
 
 export default {
   list: getTodoList(), // todo list

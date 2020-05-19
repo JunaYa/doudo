@@ -29,23 +29,23 @@
 </template>
 
 <script>
-import TodoItem from "@/components/TodoItem.vue";
+import TodoItem from '@/components/TodoItem.vue';
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "Todo",
+  name: 'Todo',
 
   components: {
     TodoItem
   },
 
   computed: {
-    ...mapGetters(["list", "canUndo", "canRedo"])
+    ...mapGetters(['list', 'canUndo', 'canRedo'])
   },
 
   methods: {
-    ...mapActions(["undo", "redo", "add", "remove", "update"]),
+    ...mapActions(['undo', 'redo', 'add', 'remove', 'update']),
 
     addNewTodo() {
       const todoData = {
@@ -91,7 +91,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  content: "";
+  content: '';
   width: 1.2rem;
   height: 3px;
   background-color: #ffffff;
@@ -103,7 +103,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  content: "";
+  content: '';
   width: 3px;
   height: 1.2rem;
   background-color: #ffffff;

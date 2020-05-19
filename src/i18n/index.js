@@ -1,14 +1,14 @@
-import Vue from "vue";
-import VueI18n from "vue-i18n";
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
 
 Vue.use(VueI18n);
 
-const DEFAULT_LANG = "zh";
-const LOCALE_KEY = "localeLanguage";
+const DEFAULT_LANG = 'zh';
+const LOCALE_KEY = 'localeLanguage';
 
 const locales = {
-  zh: require("./zh.json"),
-  en: require("./en.json")
+  zh: require('./zh.json'),
+  en: require('./en.json')
 };
 
 const i18n = new VueI18n({
@@ -29,13 +29,13 @@ export const setup = lang => {
     document.body.classList.remove(`lang-${lang}`);
   });
   document.body.classList.add(`lang-${lang}`);
-  document.body.setAttribute("lang", lang);
+  document.body.setAttribute('lang', lang);
 
   Vue.config.lang = lang;
   i18n.locale = lang;
 };
 
-let lang = "zh";
+let lang = 'zh';
 
 location.search.replace(/lang=([a-z-]+)&?/i, function(a, b) {
   lang = b;

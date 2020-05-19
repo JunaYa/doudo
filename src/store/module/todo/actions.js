@@ -1,4 +1,4 @@
-import T from "./contans";
+import T from './contans';
 
 const DODO = {
   [T.ADD]: T.REMOVE,
@@ -14,7 +14,7 @@ export default {
       let params = JSON.parse(action);
       dispatch(params.action, { ...params.data, from: T.UNDO });
     } catch (error) {
-      console.warn("UNDO error:::", error);
+      console.warn('UNDO error:::', error);
     }
   },
 
@@ -25,7 +25,7 @@ export default {
       let params = JSON.parse(action);
       dispatch(params.action, { ...params.data, from: T.REDO });
     } catch (error) {
-      console.warn("UNDO error:::", error);
+      console.warn('UNDO error:::', error);
     }
   },
 

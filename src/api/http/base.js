@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 function httpGET(url, params) {
   return axios({
-    method: "GET",
+    method: 'GET',
     url,
     params
   });
@@ -10,7 +10,7 @@ function httpGET(url, params) {
 
 function httpPOST(url, data) {
   return axios({
-    method: "POST",
+    method: 'POST',
     url,
     data
   });
@@ -18,7 +18,7 @@ function httpPOST(url, data) {
 
 function httpDELETE(url, data) {
   return axios({
-    method: "DELETE",
+    method: 'DELETE',
     url,
     data
   });

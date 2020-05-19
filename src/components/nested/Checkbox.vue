@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "Checkbox",
+  name: 'Checkbox',
   props: {
     checked: {
       type: Boolean,
@@ -64,7 +64,7 @@ export default {
 }
 
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }

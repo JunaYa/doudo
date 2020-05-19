@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import SignIn from "./pages/sigin/SignIn.vue";
-import Todo from "./components/Todo.vue";
+import SignIn from './pages/sigin/SignIn.vue';
+import Todo from './components/Todo.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     SignIn,
     Todo

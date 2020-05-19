@@ -1,12 +1,12 @@
-import { save } from "../../../utils/storage";
-import T from "./contans";
+import { save } from '../../../utils/storage';
+import T from './contans';
 
 export default {
   [T.UNDO](state, data) {
     try {
       state.undoList.push(JSON.stringify(data));
     } catch (error) {
-      console.warn("undo storage error:::", error);
+      console.warn('undo storage error:::', error);
     }
   },
 
@@ -14,7 +14,7 @@ export default {
     try {
       state.redoList.push(JSON.stringify(data));
     } catch (error) {
-      console.warn("undo storage error:::", error);
+      console.warn('undo storage error:::', error);
     }
   },
 

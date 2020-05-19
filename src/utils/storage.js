@@ -1,4 +1,4 @@
-const TODO_LIST = "todo-list";
+const TODO_LIST = 'todo-list';
 
 /**
  * 获取 todo list
@@ -9,7 +9,7 @@ export function getTodoList() {
     if (!data) return [];
     return JSON.parse(data);
   } catch (error) {
-    console.log("TODO_LIST", error);
+    console.log('TODO_LIST', error);
     return [];
   }
 }

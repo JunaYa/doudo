@@ -33,6 +33,7 @@
   "eslintConfig": {
     "root": true,
     "env": {
+      "browser": true,
       "node": true
     },
     "extends": [
@@ -44,7 +45,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "prettier/prettier": ["error", { "singleQuote": true }]
+    }
   },
   "browserslist": [
     "> 1%",

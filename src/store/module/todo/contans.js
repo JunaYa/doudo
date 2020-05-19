@@ -1,13 +1,13 @@
 export default {
-  UNDO: "undo",
+  UNDO: 'undo',
 
-  REDO: "redo",
+  REDO: 'redo',
 
-  ADD: "add",
+  ADD: 'add',
 
-  REMOVE: "remove",
+  REMOVE: 'remove',
 
-  UPDATE: "update",
+  UPDATE: 'update',
 
-  CLEAR_REDO: "clearRedo"
+  CLEAR_REDO: 'clearRedo'
 };

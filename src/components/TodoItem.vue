@@ -6,7 +6,7 @@
       v-show="editType !== 'title'"
       class="title"
       @dblclick="onEdit('title')"
-      >{{ item.title || " " }}</span
+      >{{ item.title || ' ' }}</span
     >
     <input
       ref="inputTitle"
@@ -23,7 +23,7 @@
       v-show="editType !== 'content'"
       class="content"
       @dblclick="onEdit('content')"
-      >{{ item.content || " " }}</span
+      >{{ item.content || ' ' }}</span
     >
     <input
       v-show="editType === 'content'"
@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import Checkbox from "@/components/nested/Checkbox.vue";
+import Checkbox from '@/components/nested/Checkbox.vue';
 
 export default {
-  name: "TodoItem",
+  name: 'TodoItem',
   components: {
     Checkbox
   },
@@ -53,7 +53,7 @@ export default {
 
   data() {
     return {
-      editType: "idle"
+      editType: 'idle'
     };
   },
 
@@ -75,8 +75,8 @@ export default {
      * 取消编辑
      */
     cancelEdit() {
-      this.$emit("click", this.item);
-      this.editType = "idle";
+      this.$emit('click', this.item);
+      this.editType = 'idle';
     }
   }
 };
