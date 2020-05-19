@@ -1,23 +1,21 @@
 export default {
+  list(state) {
+    return state.list;
+  },
 
-    list(state) {
-        return state.list
-    },
+  undoList(state) {
+    return state.undoList;
+  },
 
-    undoList(state) {
-        return state.undoList
-    },
+  canUndo(state) {
+    return state.undoList.length > 0;
+  },
 
-    canUndo(state) {
-        return state.undoList.length > 0
-    },
+  redoList(state) {
+    return state.redoList;
+  },
 
-    redoList(state) {
-        return state.redoList
-    },
-
-    canRedo(state) {
-        return state.redoList.length > 0
-    },
-    
-}
+  canRedo(state) {
+    return state.redoList.length > 0;
+  }
+};

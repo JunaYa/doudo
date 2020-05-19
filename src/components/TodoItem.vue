@@ -1,22 +1,16 @@
 <template>
-  <div
-    class="item"
-  >
-    <Checkbox
-      :checked="item.checked"
-      @click="$emit('click', item)"
-    />
-    <span
-      class="index"
-    >{{ item.index || 0 }}</span>
+  <div class="item">
+    <Checkbox :checked="item.checked" @click="$emit('click', item)" />
+    <span class="index">{{ item.index || 0 }}</span>
     <span
       v-show="editType !== 'title'"
       class="title"
       @dblclick="onEdit('title')"
-    >{{ item.title || ' ' }}</span>
+      >{{ item.title || " " }}</span
+    >
     <input
       ref="inputTitle"
-      v-show="editType === 'title'" 
+      v-show="editType === 'title'"
       v-model="item.title"
       type="text"
       autofocus
@@ -24,78 +18,71 @@
       @blur="cancelEdit"
       @focus="onFocus"
       class="input input-title"
-    >
+    />
     <span
-      v-show="editType !== 'content'" 
+      v-show="editType !== 'content'"
       class="content"
       @dblclick="onEdit('content')"
-    >{{ item.content || ' ' }}</span>
+      >{{ item.content || " " }}</span
+    >
     <input
-      v-show="editType === 'content'" 
+      v-show="editType === 'content'"
       v-model="item.content"
       type="text"
       autofocus
       @blur="cancelEdit"
       class="input input-content"
-    >
+    />
   </div>
 </template>
 
 <script>
-import Checkbox from '@/components/nested/Checkbox.vue'
+import Checkbox from "@/components/nested/Checkbox.vue";
 
 export default {
-    name: 'TodoItem',
-    components: {
-      Checkbox,
-    },
-    props: {
-        item: {
-            type: Object,
-            default: () => {},
-        },
-    },
-
-    data() {
-      return {
-        editType: 'idle'
-      }
-    },
-
-    computed: {
-    },
-
-    methods: {
-
-      onBlur() {
-        
-      },
-
-      onFocus() {
-
-      },
-
-      /**
-       * 编辑内容
-       */
-      onEdit(type) {
-        this.editType = type
-      },
-
-      /**
-       * 取消编辑
-       */
-      cancelEdit() {
-        this.$emit('click', this.item)
-        this.editType = 'idle'
-      }
+  name: "TodoItem",
+  components: {
+    Checkbox
+  },
+  props: {
+    item: {
+      type: Object,
+      default: () => {}
     }
+  },
 
-}
+  data() {
+    return {
+      editType: "idle"
+    };
+  },
+
+  computed: {},
+
+  methods: {
+    onBlur() {},
+
+    onFocus() {},
+
+    /**
+     * 编辑内容
+     */
+    onEdit(type) {
+      this.editType = type;
+    },
+
+    /**
+     * 取消编辑
+     */
+    cancelEdit() {
+      this.$emit("click", this.item);
+      this.editType = "idle";
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
-
 .item {
   @include f-r;
   justify-content: flex-start;
@@ -104,11 +91,11 @@ export default {
   margin-bottom: 16px;
   border-radius: 2px;
   user-select: none;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, .1);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  
+
   &:hover {
-    box-shadow: 1px 2px 12px rgba(0, 0, 0, .2);
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -137,12 +124,10 @@ export default {
 }
 
 .input {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: inherit;
   border-radius: 2px;
   border-width: 0;
   padding: 8px 8px;
 }
-
-
 </style>

@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import SignIn from './pages/sigin/SignIn.vue'
-import Todo from './components/Todo.vue'
+import SignIn from "./pages/sigin/SignIn.vue";
+import Todo from "./components/Todo.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     SignIn,
-    Todo,
+    Todo
   }
-}
+};
 </script>
 
 <style>
@@ -34,7 +34,9 @@ body {
   --button-width: 2.2rem;
   --button-height: 1.3rem;
   --toggle-diameter: 1rem;
-  --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+  --button-toggle-offset: calc(
+    (var(--button-height) - var(--toggle-diameter)) / 2
+  );
   --toggle-shadow-offset: 10px;
   --toggle-wider: 1rem;
   --color-grey: #e9e9e9;
