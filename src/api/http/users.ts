@@ -1,11 +1,11 @@
 import { httpPOST } from '@/api/http/base.js';
 import endpoint from '@/api/endpoint/users';
 
-function login(params) {
+function login(params: any) {
   return httpPOST(endpoint.LOGIN, params);
 }
 
-function register(params) {
+function register(params: any) {
   return httpPOST(endpoint.REGISTER, params);
 }
 

@@ -1,3 +1,7 @@
+import { ActionTree } from 'vuex';
+import { TodoState, Todo } from './types';
+import { RootState } from '../../types';
+
 import T from './contans';
 
 const DODO = {
@@ -6,12 +10,23 @@ const DODO = {
   [T.UPDATE]: T.UPDATE
 };
 
-export default {
+export const actions: ActionTree<TodoState, RootState> = {
   [T.UNDO]({ dispatch, state }) {
     if (state.undoList.length === 0) return;
     try {
       const action = state.undoList.pop();
-      let params = JSON.parse(action);
+      let params = JSON.parse(action || '');
+      dispatch(params.action, { ...params.data, from: T.UNDO });
+    } catch (error) {
+      console.warn('UNDO error:::', error);
+    }
+  },
+
+  [T.UNDO]({ dispatch, state }) {
+    if (state.undoList.length === 0) return;
+    try {
+      const action = state.undoList.pop();
+      let params = JSON.parse(action || '');
       dispatch(params.action, { ...params.data, from: T.UNDO });
     } catch (error) {
       console.warn('UNDO error:::', error);
@@ -22,7 +37,7 @@ export default {
     if (state.redoList.length === 0) return;
     try {
       const action = state.redoList.pop();
-      let params = JSON.parse(action);
+      let params = JSON.parse(action || '');
       dispatch(params.action, { ...params.data, from: T.REDO });
     } catch (error) {
       console.warn('UNDO error:::', error);

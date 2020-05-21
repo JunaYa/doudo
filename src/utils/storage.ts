@@ -18,6 +18,6 @@ export function getTodoList() {
  * 存储 todo-list
  * @param {Array} data
  */
-export function save(data) {
+export function save(data: any) {
   window.localStorage.setItem(TODO_LIST, JSON.stringify(data));
 }

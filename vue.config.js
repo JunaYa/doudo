@@ -1,6 +1,7 @@
 module.exports = {
   // https://ulanqab.fun/doudo
   publicPath: process.env.NODE_ENV === 'production' ? '/doudo/' : '/',
+
   devServer: {
     proxy: {
       '^/api': {
@@ -14,10 +15,13 @@ module.exports = {
       errors: true
     }
   },
+
   // 正式环境关闭 lint
   lintOnSave: process.env.NODE_ENV !== 'production',
+
   // 正式环境关闭 source map
   productionSourceMap: process.env.NODE_ENV !== 'production',
+
   css: {
     // 开启后影响构建性能
     sourceMap: false,
@@ -50,10 +54,29 @@ module.exports = {
       // postcss: {},
     }
   },
+
   // 是否为 Babel 或 TypeScript 使用 thread-loader
   parallel: process.env.NODE_ENV === 'production',
+
   chainWebpack: config => {
+    // eslint
     config.module.rule('eslint');
     config.module.rule('eslint').use('eslint-loader');
+
+    // ts
+    // config.rule('ts');
+    // config.rule('ts').use('ts-loader');
+    // config.rule('ts').use('babel-loader');
+    // config.rule('ts').use('cache-loader');
+    // config.plugin('fork-ts-checker');
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'zh',
+      fallbackLocale: 'zh',
+      localeDir: 'i18n/locales',
+      enableInSFC: true
+    }
   }
 };
