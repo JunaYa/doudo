@@ -1,4 +1,4 @@
-import users from '@/api/http/users.js';
+import users from '@/api/http/users.ts';
 
 export default {
   ...users

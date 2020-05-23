@@ -1,5 +1,5 @@
-import { httpPOST } from '@/api/http/base.js';
-import endpoint from '@/api/endpoint/users';
+import { httpPOST } from '@/api/http/base.ts';
+import endpoint from '@/api/endpoint/users.ts';
 
 function login(params: any) {
   return httpPOST(endpoint.LOGIN, params);

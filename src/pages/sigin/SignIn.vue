@@ -1,7 +1,12 @@
 <template>
   <div class="main-wrapper">
     <div class="main">
-      <div ref="aContainer" id="a-container" class="container a-container">
+      <div
+        ref="aContainer"
+        id="a-container"
+        :class="{ 'is-txl': isSignin }"
+        class="container a-container"
+      >
         <form id="a-form" class="form" method="" action="">
           <h2 class="form_title title">
             {{ $t('sign.create-account') }}
@@ -44,7 +49,12 @@
           </button>
         </form>
       </div>
-      <div ref="bContainer" id="b-container" class="container b-container">
+      <div
+        ref="bContainer"
+        id="b-container"
+        :class="{ 'is-txl is-z200': isSignin }"
+        class="container b-container"
+      >
         <form id="b-form" class="form" method="" action="">
           <h2 class="form_title title">
             {{ $t('sign.sign-title') }}
@@ -82,10 +92,28 @@
           </button>
         </form>
       </div>
-      <div ref="switchCnt" id="switch-cnt" class="switch">
-        <div ref="switchCircle1" class="switch__circle" />
-        <div ref="switchCircle2" class="switch__circle switch__circle--t" />
-        <div ref="switchC1" id="switch-c1" class="switch__container">
+      <div
+        ref="switchCnt"
+        id="switch-cnt"
+        :class="{ 'is-txr': isSignin }"
+        class="switch"
+      >
+        <div
+          ref="switchCircle1"
+          :class="{ 'is-txr': isSignin }"
+          class="switch__circle"
+        />
+        <div
+          ref="switchCircle2"
+          :class="{ 'is-txr': isSignin }"
+          class="switch__circle switch__circle--t"
+        />
+        <div
+          ref="switchC1"
+          id="switch-c1"
+          :class="{ 'is-hidden': isSignin }"
+          class="switch__container"
+        >
           <h2 class="switch__title title">
             {{ $t('sign.welcome-back') }}
           </h2>
@@ -96,7 +124,12 @@
             {{ $t('sign.signin') }}
           </button>
         </div>
-        <div ref="switchC2" id="switch-c2" class="switch__container is-hidden">
+        <div
+          ref="switchC2"
+          id="switch-c2"
+          :class="{ 'is-hidden': !isSignin }"
+          class="switch__container"
+        >
           <h2 class="switch__title title">
             {{ $t('sign.hello-friends') }}
           </h2>
@@ -112,70 +145,67 @@
   </div>
 </template>
 
-<script>
-import api from '@/api/index.js';
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import api from '@/api/index.ts';
 
-export default {
-  name: 'SignIn',
-  data() {
-    return {
-      isSignin: false, // false: signin true: signup
-      formSignIn: {
-        nickname: '',
-        password: ''
-      },
-      formSignUp: {
-        nickname: '',
-        email: '',
-        password: ''
-      }
-    };
-  },
-  methods: {
-    onSwitch(e) {
-      e.preventDefault();
+interface form {
+  nickname: string;
+  password: string;
+  email?: string;
+}
+@Component
+export default class SingIn extends Vue {
+  isSignin: boolean = false;
 
-      this.isSignin = !this.isSignin;
+  formSignIn: form = {
+    nickname: '',
+    password: ''
+  };
 
-      this.$refs.switchCnt.classList.add('is-gx');
+  formSignUp: form = {
+    nickname: '',
+    password: '',
+    email: ''
+  };
+
+  onSwitch(e: Event) {
+    e.preventDefault();
+
+    this.isSignin = !this.isSignin;
+    const switchCnt: Element | null = document.querySelector('#switch-cnt');
+    if (switchCnt !== null) {
+      switchCnt.classList.add('is-gx');
       setTimeout(() => {
-        this.$refs.switchCnt.classList.remove('is-gx');
+        switchCnt.classList.remove('is-gx');
       }, 1500);
-
-      this.$refs.switchCnt.classList.toggle('is-txr');
-      this.$refs.switchCircle1.classList.toggle('is-txr');
-      this.$refs.switchCircle2.classList.toggle('is-txr');
-
-      this.$refs.switchC1.classList.toggle('is-hidden');
-      this.$refs.switchC2.classList.toggle('is-hidden');
-      this.$refs.aContainer.classList.toggle('is-txl');
-      this.$refs.bContainer.classList.toggle('is-txl');
-      this.$refs.bContainer.classList.toggle('is-z200');
-    },
-    onSingIn(e) {
-      api
-        .login(this.formSignIn)
-        .then(res => {
-          console.log(res);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      e.preventDefault();
-    },
-    onSignUp(e) {
-      api
-        .register(this.formSignUp)
-        .then(res => {
-          console.log(res);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      e.preventDefault();
     }
   }
-};
+
+  onSingIn(e: Event) {
+    api
+      .login(this.formSignIn)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    e.preventDefault();
+  }
+
+  onSignUp(e: Event) {
+    api
+      .register(this.formSignUp)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    e.preventDefault();
+  }
+}
 </script>
 
 <style scoped lang="scss">
