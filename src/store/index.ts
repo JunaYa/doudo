@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { RootState } from './types';
-import { todoModule } from './module/todo/index';
+import { todo } from './module/todo/index';
 
 Vue.use(Vuex);
 
@@ -10,7 +10,7 @@ const store: StoreOptions<RootState> = {
     version: '0.0.1'
   },
   modules: {
-    todoModule
+    todo
   }
 };
 export default new Vuex.Store<RootState>(store);

@@ -8,7 +8,7 @@ import { TodoState } from './types';
 
 const namespaced: boolean = true;
 
-export const todoModule: Module<TodoState, RootState> = {
+export const todo: Module<TodoState, RootState> = {
   namespaced,
   state,
   getters,

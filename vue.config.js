@@ -58,18 +58,18 @@ module.exports = {
   // 是否为 Babel 或 TypeScript 使用 thread-loader
   parallel: process.env.NODE_ENV === 'production',
 
-  chainWebpack: config => {
-    // eslint
-    config.module.rule('eslint');
-    config.module.rule('eslint').use('eslint-loader');
+  // chainWebpack: config => {
+  // eslint
+  // config.module.rule('eslint');
+  // config.module.rule('eslint').use('eslint-loader');
 
-    // ts
-    // config.rule('ts');
-    // config.rule('ts').use('ts-loader');
-    // config.rule('ts').use('babel-loader');
-    // config.rule('ts').use('cache-loader');
-    // config.plugin('fork-ts-checker');
-  },
+  // ts
+  // config.module.rule('ts');
+  // config.module.rule('ts').use('ts-loader');
+  // config.module.rule('ts').use('babel-loader');
+  // config.module.rule('ts').use('cache-loader');
+  // config.plugin('fork-ts-checker');
+  // },
 
   pluginOptions: {
     i18n: {

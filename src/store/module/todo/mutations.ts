@@ -1,10 +1,10 @@
 import { save } from '../../../utils/storage';
 import T from './contans';
 import { MutationTree } from 'vuex';
-import { TodoState } from './types';
+import { TodoState, Todo } from './types';
 
 export const mutations: MutationTree<TodoState> = {
-  [T.UNDO](state, data: any) {
+  [T.UNDO](state, data: Todo) {
     try {
       state.undoList.push(JSON.stringify(data));
     } catch (error) {
@@ -12,7 +12,7 @@ export const mutations: MutationTree<TodoState> = {
     }
   },
 
-  [T.REDO](state, data: any) {
+  [T.REDO](state, data: Todo) {
     try {
       state.redoList.push(JSON.stringify(data));
     } catch (error) {
@@ -24,17 +24,17 @@ export const mutations: MutationTree<TodoState> = {
     state.redoList = [];
   },
 
-  [T.ADD](state, data: any) {
+  [T.ADD](state, data: Todo[]) {
     state.list = data;
     save(state.list);
   },
 
-  [T.REMOVE](state, data: any) {
+  [T.REMOVE](state, data: Todo[]) {
     state.list = data;
     save(state.list);
   },
 
-  [T.UPDATE](state, data: any) {
+  [T.UPDATE](state, data: Todo[]) {
     state.list = data;
     save(state.list);
   }

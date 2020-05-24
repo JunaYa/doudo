@@ -28,44 +28,51 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import TodoItem from '@/components/TodoItem.vue';
+import { Vue, Component } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
+/* eslint-disable no-unused-vars */
+import { Todo } from '../store/module/todo/types';
 
-import { mapGetters, mapActions } from 'vuex';
+const namespace: string = 'todo';
 
-export default {
-  name: 'Todo',
-
+@Component({
   components: {
     TodoItem
-  },
-
-  computed: {
-    ...mapGetters(['list', 'canUndo', 'canRedo'])
-  },
-
-  methods: {
-    ...mapActions(['undo', 'redo', 'add', 'remove', 'update']),
-
-    addNewTodo() {
-      const todoData = {
-        index: this.list.length,
-        data: {
-          index: this.list.length,
-          title: `TITLE - ${this.list.length}`,
-          content: `CONTENT - ${this.list.length}`,
-          checked: false
-        }
-      };
-      this.add(todoData);
-    },
-
-    onItemSelected(index, item) {
-      item.checked = !item.checked;
-      this.update({ index, data: item });
-    }
   }
-};
+})
+export default class TodoView extends Vue {
+  @Getter('list', { namespace }) list: Array<Todo> = [];
+  @Getter('canUndo', { namespace }) canUndo: boolean = false;
+  @Getter('canRedo', { namespace }) canRedo: boolean = false;
+
+  @Action('undo', { namespace }) undo: any;
+  @Action('redo', { namespace }) redo: any;
+  @Action('add', { namespace }) add: any;
+  @Action('remove', { namespace }) remove: any;
+  @Action('update', { namespace }) update: any;
+
+  addNewTodo() {
+    const param: Todo = {
+      id: 'todo' + this.list.length,
+      index: this.list.length,
+      title: `TITLE - ${this.list.length}`,
+      content: `CONTENT - ${this.list.length}`,
+      checked: false
+    };
+    const todoData = {
+      index: this.list.length,
+      data: param
+    };
+    this.add(todoData);
+  }
+
+  onItemSelected(index: number, item: Todo) {
+    item.checked = !item.checked;
+    this.update({ index, data: item });
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

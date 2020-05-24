@@ -36,50 +36,41 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import Checkbox from '@/components/nested/Checkbox.vue';
+/* eslint-disable no-unused-vars */
+import { Todo } from '../store/module/todo/types';
 
-export default {
-  name: 'TodoItem',
+@Component({
   components: {
     Checkbox
-  },
-  props: {
-    item: {
-      type: Object,
-      default: () => {}
-    }
-  },
-
-  data() {
-    return {
-      editType: 'idle'
-    };
-  },
-
-  computed: {},
-
-  methods: {
-    onBlur() {},
-
-    onFocus() {},
-
-    /**
-     * 编辑内容
-     */
-    onEdit(type) {
-      this.editType = type;
-    },
-
-    /**
-     * 取消编辑
-     */
-    cancelEdit() {
-      this.$emit('click', this.item);
-      this.editType = 'idle';
-    }
   }
-};
+})
+export default class TodoItem extends Vue {
+  @Prop({ type: Object, default: () => {} })
+  item!: Todo;
+
+  editType: string = 'idle';
+
+  onBlur() {}
+
+  onFocus() {}
+
+  /**
+   * 编辑内容
+   */
+  onEdit(type: string) {
+    this.editType = type;
+  }
+  /**
+   * 取消编辑
+   */
+  cancelEdit() {
+    this.$emit('click', this.item);
+    this.editType = 'idle';
+  }
+}
 </script>
 
 <style scoped lang="scss">

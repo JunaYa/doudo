@@ -10,16 +10,14 @@
   </label>
 </template>
 
-<script>
-export default {
-  name: 'Checkbox',
-  props: {
-    checked: {
-      type: Boolean,
-      default: false
-    }
-  }
-};
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+@Component
+export default class Checkbox extends Vue {
+  @Prop({ type: Boolean, default: false })
+  checked!: boolean;
+}
 </script>
 
 <style scoped>

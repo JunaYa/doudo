@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <SignInPage />
-    <Todo v-if="false" />
+    <TodoView v-if="false" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Todo from './components/Todo.vue';
+import TodoView from './components/TodoView.vue';
 import SignInPage from './pages/sigin/SignIn.vue';
 
 @Component({
   components: {
     SignInPage,
-    Todo
+    TodoView
   }
 })
 export default class App extends Vue {}
