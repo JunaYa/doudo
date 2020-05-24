@@ -29,11 +29,12 @@
 </template>
 
 <script lang="ts">
-import TodoItem from '@/components/TodoItem.vue';
 import { Vue, Component } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 /* eslint-disable no-unused-vars */
-import { Todo } from '../store/module/todo/types';
+import { Todo } from '@/store/module/todo/types';
+
+import TodoItem from '@/pages/todo/TodoItem.vue';
 
 const namespace: string = 'todo';
 

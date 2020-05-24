@@ -1,20 +1,19 @@
 <template>
   <div id="app">
-    <SignInPage />
-    <TodoView v-if="false" />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/signin">SignIn</router-link>
+      <router-link to="/todo">Todo</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import TodoView from './components/TodoView.vue';
-import SignInPage from './pages/sigin/SignIn.vue';
 
 @Component({
-  components: {
-    SignInPage,
-    TodoView
-  }
+  components: {}
 })
 export default class App extends Vue {}
 </script>

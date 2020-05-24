@@ -40,7 +40,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import Checkbox from '@/components/nested/Checkbox.vue';
 /* eslint-disable no-unused-vars */
-import { Todo } from '../store/module/todo/types';
+import { Todo } from '@/store/module/todo/types';
 
 @Component({
   components: {
