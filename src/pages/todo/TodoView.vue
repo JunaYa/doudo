@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Getter, Action } from 'vuex-class';
+import { Action } from 'vuex-class';
 /* eslint-disable no-unused-vars */
 import { Todo } from '@/store/module/todo/types';
 
@@ -44,15 +44,23 @@ const namespace: string = 'todo';
   }
 })
 export default class TodoView extends Vue {
-  @Getter('list', { namespace }) list: Array<Todo> = [];
-  @Getter('canUndo', { namespace }) canUndo: boolean = false;
-  @Getter('canRedo', { namespace }) canRedo: boolean = false;
-
   @Action('undo', { namespace }) undo: any;
   @Action('redo', { namespace }) redo: any;
   @Action('add', { namespace }) add: any;
   @Action('remove', { namespace }) remove: any;
   @Action('update', { namespace }) update: any;
+
+  get list(): Todo[] {
+    return this.$store.state.todo.list;
+  }
+
+  get canUndo(): boolean {
+    return this.$store.state.todo.canUndo;
+  }
+
+  get canRedo(): boolean {
+    return this.$store.state.todo.canRedo;
+  }
 
   addNewTodo() {
     const param: Todo = {

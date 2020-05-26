@@ -4,7 +4,7 @@
       class="checkbox"
       type="checkbox"
       :checked="checked"
-      @click="$emit('click')"
+      @click="onClick"
     />
     <span class="checkmark" />
   </label>
@@ -17,10 +17,14 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 export default class Checkbox extends Vue {
   @Prop({ type: Boolean, default: false })
   checked!: boolean;
+
+  onClick() {
+    this.$emit('click');
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: inline-block;
   position: relative;
@@ -49,7 +53,7 @@ export default class Checkbox extends Vue {
   height: 1rem;
   width: 1rem;
   background-color: #ffffff;
-  border: 2px solid var(--text-color-primary);
+  border: 2px solid $text-color-primary;
   border-radius: 2px;
 }
 
@@ -58,7 +62,7 @@ export default class Checkbox extends Vue {
 }
 
 .container input:checked ~ .checkmark {
-  background-color: var(--text-color-primary);
+  background-color: $text-color-primary;
 }
 
 .checkmark:after {
