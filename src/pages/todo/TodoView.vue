@@ -37,6 +37,7 @@ import { Todo } from '@/store/module/todo/types';
 import TodoItem from '@/pages/todo/TodoItem.vue';
 
 const namespace: string = 'todo';
+// const todo = namespace('todo');
 
 @Component({
   components: {
@@ -49,17 +50,22 @@ export default class TodoView extends Vue {
   @Action('add', { namespace }) add: any;
   @Action('remove', { namespace }) remove: any;
   @Action('update', { namespace }) update: any;
+  @Action('getTodoList', { namespace }) getTodoList: any;
 
   get list(): Todo[] {
-    return this.$store.state.todo.list;
+    return this.$store.getters['todo/list'];
   }
 
   get canUndo(): boolean {
-    return this.$store.state.todo.canUndo;
+    return this.$store.getters['todo/canUndo'];
   }
 
   get canRedo(): boolean {
-    return this.$store.state.todo.canRedo;
+    return this.$store.getters['todo/canRedo'];
+  }
+
+  created() {
+    this.getTodoList();
   }
 
   addNewTodo() {
@@ -85,7 +91,7 @@ export default class TodoView extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .btn-add-wrapper {
   position: fixed;
   bottom: 1rem;

@@ -1,4 +1,6 @@
 export default {
+  GET_TODO_LIST: 'getTodoList',
+
   UNDO: 'undo',
 
   REDO: 'redo',
