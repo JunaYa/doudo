@@ -22,6 +22,8 @@ export default class App extends Vue {}
 body {
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -1,5 +1,5 @@
 import { saveTodoList } from '@/utils/storage';
-import T from './contans';
+import T from '../../contans';
 import { MutationTree } from 'vuex';
 import { TodoState, Todo } from './types';
 

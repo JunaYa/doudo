@@ -1,18 +1,11 @@
 <template>
   <div class="home">
     <div class="container">
-      <div :style="{ width: width + 'px' }" class="scalable">
+      <div class="scalable">
         <div class="content">
           side
         </div>
-        <div
-          class="separator"
-          @mousedown="onStartDrag"
-          @mouseover="onDrag"
-          @mouseup="onStopDrag"
-        >
-          <i></i><i></i>
-        </div>
+        <div class="separator"><i></i><i></i></div>
       </div>
       <div class="main">
         <div>content</div>
@@ -23,25 +16,60 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import { Mutation } from 'vuex-class';
+/* eslint-disable no-unused-vars */
+import { Structure } from '@/store/module/setting/types';
+
+const namespace: string = 'setting';
 
 @Component
 export default class Home extends Vue {
   private startX: number = 0;
   private startWidth: number = 0;
-  private width: number = 200;
+
+  @Mutation('get_structure', { namespace }) getStructure: any;
+  @Mutation('update_structure', { namespace }) updateStructure: any;
+
+  get structure(): Structure {
+    return this.$store.getters['setting/structure'];
+  }
+
+  mounted() {
+    this.getStructure();
+    this.startWidth = this.structure.separator || this.getScalableDivWidth();
+    const scalable = document.querySelector('.scalable') as HTMLDivElement;
+    scalable.style.width = this.startWidth + 'px';
+
+    const separator = document.querySelector('.separator') as HTMLDivElement;
+    separator.addEventListener('mousedown', this.onStartDrag);
+  }
 
   onStartDrag(e: MouseEvent) {
-    console.log('onStartDrag', e);
     this.startX = e.clientX;
+    this.startWidth = this.getScalableDivWidth();
+
+    document.documentElement.addEventListener('mousemove', this.onDrag);
+    document.documentElement.addEventListener('mouseup', this.onStopDrag);
   }
 
   onDrag(e: MouseEvent) {
-    console.log(e);
-    this.width = this.startWidth + e.clientX - this.startX;
+    const scalable = document.querySelector('.scalable') as HTMLDivElement;
+    scalable.style.width = this.startWidth + e.clientX - this.startX + 'px';
   }
 
-  onStopDrag(e: MouseEvent) {
-    console.log('onStopDrag', e);
+  onStopDrag() {
+    this.startWidth = this.getScalableDivWidth();
+    document.documentElement.removeEventListener('mouseup', this.onStartDrag);
+    document.documentElement.removeEventListener('mousemove', this.onDrag);
+
+    // 更新保存最新设置
+    this.structure.separator = this.startWidth;
+    this.updateStructure(this.structure);
+  }
+
+  getScalableDivWidth() {
+    const separator = document.querySelector('.scalable') as HTMLDivElement;
+    return parseInt(window.getComputedStyle(separator).width, 10);
   }
 }
 </script>
@@ -60,6 +88,7 @@ export default class Home extends Vue {
 .main {
   background-color: yellow;
   flex: 1;
+  min-width: 50vw;
 }
 .content {
   padding: 20px;

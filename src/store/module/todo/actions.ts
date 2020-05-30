@@ -3,7 +3,7 @@ import { TodoState, Todo } from './types';
 import { RootState } from '../../types';
 import { getTodoList } from '@/utils/storage';
 
-import T from './contans';
+import T from '../../contans';
 
 const DODO = {
   [T.ADD]: T.REMOVE,
