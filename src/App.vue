@@ -19,11 +19,15 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
-  -webkit-user-select: none;
-  user-select: none;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

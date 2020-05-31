@@ -8,13 +8,14 @@
         <div class="separator"><i></i><i></i></div>
       </div>
       <div class="main">
-        <div>content</div>
+        <div><TodoVIew /></div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import TodoVIew from '@/pages/todo/TodoView.vue';
 import { Vue, Component } from 'vue-property-decorator';
 import { Mutation } from 'vuex-class';
 /* eslint-disable no-unused-vars */
@@ -22,7 +23,11 @@ import { Structure } from '@/store/module/setting/types';
 
 const namespace: string = 'setting';
 
-@Component
+@Component({
+  components: {
+    TodoVIew
+  }
+})
 export default class Home extends Vue {
   private startX: number = 0;
   private startWidth: number = 0;
@@ -86,7 +91,7 @@ export default class Home extends Vue {
   min-width: 200px;
 }
 .main {
-  background-color: yellow;
+  background-color: #ffffff;
   flex: 1;
   min-width: 50vw;
 }

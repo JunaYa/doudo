@@ -2,15 +2,14 @@
   <div class="item">
     <Checkbox :checked="item.checked" @click="$emit('click', item)" />
     <span class="index">{{ item.index || 0 }}</span>
-    <span
+    <!-- <span
       v-show="editType !== 'title'"
       class="title"
       @dblclick="onEdit('title')"
       >{{ item.title || ' ' }}</span
-    >
+    > -->
     <input
       ref="inputTitle"
-      v-show="editType === 'title'"
       v-model="item.title"
       type="text"
       autofocus
@@ -81,7 +80,6 @@ export default class TodoItem extends Vue {
   padding: 4px 16px;
   margin-bottom: 16px;
   border-radius: 2px;
-  user-select: none;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
@@ -95,7 +93,6 @@ export default class TodoItem extends Vue {
   color: #666666;
   font-size: 1rem;
   margin: 0 8px;
-  user-select: none;
 }
 
 .title {
@@ -104,7 +101,6 @@ export default class TodoItem extends Vue {
   font-size: 1rem;
   font-weight: 500;
   margin-right: 16px;
-  user-select: none;
 }
 
 .content {

@@ -76,10 +76,10 @@ export default class Checkbox extends Vue {
 }
 
 .container .checkmark:after {
-  left: 0.3rem;
-  top: 0;
-  width: 0.3rem;
-  height: 0.6rem;
+  left: 0.2rem;
+  top: -0.1rem;
+  width: 0.25rem;
+  height: 0.55rem;
   border: solid white;
   border-width: 0 2px 2px 0;
   border-radius: 2px;
