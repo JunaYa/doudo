@@ -1,5 +1,5 @@
 <template>
-  <label class="container">
+  <!-- <label class="container">
     <input
       class="checkbox"
       type="checkbox"
@@ -7,6 +7,16 @@
       @click="onClick"
     />
     <span class="checkmark" />
+  </label> -->
+  <label class="checkbox">
+    <span class="sr-only">Checkbox</span>
+    <input
+      type="checkbox"
+      class="checkbox__input"
+      :checked="checked"
+      @click="onClick"
+    />
+    <span class="checkbox__checkmark"></span>
   </label>
 </template>
 

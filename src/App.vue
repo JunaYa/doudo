@@ -25,6 +25,25 @@ export default class App extends Vue {}
   outline: none;
   box-sizing: border-box;
 }
+/* === SETUP === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-weight: 400;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none !important;
+  }
+}
+::selection {
+  text-shadow: none;
+  color: $white;
+  background-color: $primary-light;
+}
+html {
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   padding: 0;

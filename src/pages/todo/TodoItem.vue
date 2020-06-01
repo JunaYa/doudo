@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <section class="item">
     <Checkbox :checked="item.checked" @click="$emit('click', item)" />
     <span class="index">{{ item.index || 0 }}</span>
     <!-- <span
@@ -32,7 +32,7 @@
       @blur="cancelEdit"
       class="input input-content"
     />
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -77,7 +77,7 @@ export default class TodoItem extends Vue {
   @include f-r;
   justify-content: flex-start;
   line-height: 2.4rem;
-  padding: 4px 16px;
+  padding: 16px 22px;
   margin-bottom: 16px;
   border-radius: 2px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);

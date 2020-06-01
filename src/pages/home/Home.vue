@@ -8,7 +8,7 @@
         <div class="separator"><i></i><i></i></div>
       </div>
       <div class="main">
-        <div><TodoVIew /></div>
+        <div class="content"><TodoVIew /></div>
       </div>
     </div>
   </div>
@@ -80,6 +80,13 @@ export default class Home extends Vue {
 </script>
 
 <style scoped lang="scss">
+.home {
+  background: $background;
+  color: $grey-5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .container {
   display: flex;
   flex-direction: row;
@@ -102,15 +109,15 @@ export default class Home extends Vue {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-center;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 14px;
+  width: 8px;
   height: 100%;
   background-color: #ffffff;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: ridge-shadow();
   cursor: col-resize;
 }
 .scalable .separator i {

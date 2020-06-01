@@ -42,6 +42,7 @@ module.exports = {
             @import "~@/assets/scss/colors.scss";
             @import "~@/assets/scss/fonts.scss";
             @import "~@/assets/scss/mixins.scss";
+            @import "~@/assets/scss/shadows.scss";
         `
       },
       scss: {
@@ -49,6 +50,7 @@ module.exports = {
             @import "~@/assets/scss/colors.scss";
             @import "~@/assets/scss/fonts.scss";
             @import "~@/assets/scss/mixins.scss";
+            @import "~@/assets/scss/shadows.scss";
         `
       }
       // postcss: {},
