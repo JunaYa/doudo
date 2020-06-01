@@ -1,7 +1,7 @@
 <template>
   <section class="item">
     <Checkbox :checked="item.checked" @click="$emit('click', item)" />
-    <span class="index">{{ item.index || 0 }}</span>
+    <!-- <span class="index">{{ item.index || 0 }}</span> -->
     <!-- <span
       v-show="editType !== 'title'"
       class="title"
@@ -12,11 +12,10 @@
       ref="inputTitle"
       v-model="item.title"
       type="text"
-      autofocus
       @keyup.13="cancelEdit"
-      @blur="cancelEdit"
+      @blur="onBlur"
       @focus="onFocus"
-      class="input input-title"
+      class="input"
     />
     <span
       v-show="editType !== 'content'"
@@ -89,10 +88,13 @@ export default class TodoItem extends Vue {
 }
 
 .index {
-  text-align: left;
   color: #666666;
   font-size: 1rem;
   margin: 0 8px;
+  min-width: 32px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: raised-shadow();
 }
 
 .title {
@@ -116,5 +118,11 @@ export default class TodoItem extends Vue {
   border-radius: 2px;
   border-width: 0;
   padding: 8px 8px;
+  margin-left: 16px;
+  background-color: $background;
+  box-shadow: outset-shadow();
+  &:focus-within {
+    box-shadow: inset-shadow();
+  }
 }
 </style>
