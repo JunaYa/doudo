@@ -1,36 +1,33 @@
 <template>
   <section class="item">
-    <Checkbox :checked="item.checked" @click="$emit('click', item)" />
-    <!-- <span class="index">{{ item.index || 0 }}</span> -->
-    <!-- <span
-      v-show="editType !== 'title'"
-      class="title"
-      @dblclick="onEdit('title')"
-      >{{ item.title || ' ' }}</span
-    > -->
-    <input
-      ref="inputTitle"
-      v-model="item.title"
-      type="text"
-      @keyup.13="cancelEdit"
-      @blur="onBlur"
-      @focus="onFocus"
-      class="input"
-    />
-    <span
-      v-show="editType !== 'content'"
-      class="content"
-      @dblclick="onEdit('content')"
-      >{{ item.content || ' ' }}</span
-    >
-    <input
-      v-show="editType === 'content'"
-      v-model="item.content"
-      type="text"
-      autofocus
-      @blur="cancelEdit"
-      class="input input-content"
-    />
+    <div class="title-layout">
+      <Checkbox :checked="item.checked" @click="$emit('click', item)" />
+      <input
+        ref="inputTitle"
+        v-model="item.title"
+        type="text"
+        @keyup.13="cancelEdit"
+        @blur="onBlur"
+        @focus="onFocus"
+        class="input title"
+      />
+    </div>
+    <div v-show="isExpanded" class="content-layout">
+      <span
+        v-show="editType !== 'content'"
+        class="content"
+        @dblclick="onEdit('content')"
+        >{{ item.content || ' ' }}</span
+      >
+      <input
+        v-show="editType === 'content'"
+        v-model="item.content"
+        type="text"
+        autofocus
+        @blur="cancelEdit"
+        class="input input-content"
+      />
+    </div>
   </section>
 </template>
 
@@ -50,10 +47,15 @@ export default class TodoItem extends Vue {
   item!: Todo;
 
   editType: string = 'idle';
+  isExpanded: boolean = false;
 
-  onBlur() {}
+  onBlur() {
+    this.isExpanded = false;
+  }
 
-  onFocus() {}
+  onFocus() {
+    this.isExpanded = true;
+  }
 
   /**
    * 编辑内容
@@ -73,9 +75,6 @@ export default class TodoItem extends Vue {
 
 <style scoped lang="scss">
 .item {
-  @include f-r;
-  justify-content: flex-start;
-  line-height: 2.4rem;
   padding: 16px 22px;
   margin-bottom: 16px;
   border-radius: 2px;
@@ -87,22 +86,11 @@ export default class TodoItem extends Vue {
   }
 }
 
-.index {
-  color: #666666;
-  font-size: 1rem;
-  margin: 0 8px;
-  min-width: 32px;
-  text-align: center;
-  border-radius: 50%;
-  box-shadow: raised-shadow();
-}
-
-.title {
-  text-align: center;
-  color: $text-color-black;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-right: 16px;
+.title-layout {
+  @include f-r;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  line-height: 1.4rem;
 }
 
 .content {
@@ -112,12 +100,16 @@ export default class TodoItem extends Vue {
   user-select: none;
 }
 
-.input {
-  font-size: 0.8rem;
+.title {
+  flex: 1;
+  text-align: left;
+  color: $text-color-black;
+  font-size: 1rem;
+  font-weight: 500;
   color: inherit;
   border-radius: 2px;
   border-width: 0;
-  padding: 8px 8px;
+  padding: 12px 16px;
   margin-left: 16px;
   background-color: $background;
   box-shadow: outset-shadow();

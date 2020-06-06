@@ -129,4 +129,10 @@ export default class Home extends Vue {
 .scalable .content {
   padding-right: 14px;
 }
+
+@media screen and (max-width: 640px) {
+  .scalable {
+    display: none;
+  }
+}
 </style>
