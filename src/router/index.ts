@@ -19,6 +19,11 @@ const routes: Array<RouteConfig> = [
     path: '/todo',
     name: 'Todo',
     component: () => import('@/pages/todo/TodoView.vue')
+  },
+  {
+    path: '/calculator',
+    name: 'calculator',
+    component: () => import('@/pages/tools/Calculator.vue')
   }
 ];
 

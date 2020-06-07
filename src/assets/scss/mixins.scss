@@ -31,21 +31,21 @@
 $button-height: 48px;
 
 @mixin button-base() {
-    // @include typography(button);
-    // @include ripple-surface;
-    // @include ripple-radius-bounded;
-  
-    display: inline-flex;
-    position: relative;
-    height: $button-height;
-    border: none;
-    vertical-align: middle;
-  
-    &:hover { cursor: pointer; }
-  
-    &:disabled {
+  // @include typography(button);
+  // @include ripple-surface;
+  // @include ripple-radius-bounded;
+
+  display: inline-flex;
+  position: relative;
+  height: $button-height;
+  border: none;
+  vertical-align: middle;
+
+  &:hover { cursor: pointer; }
+
+  &:disabled {
       color: $button-color-disabled;
       cursor: default;
       pointer-events: none;
-    }
   }
+}
