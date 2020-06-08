@@ -40,6 +40,7 @@ module.exports = {
       sass: {
         prependData: `
             @import "~@/assets/scss/colors.scss";
+            @import "~@/assets/scss/reset.scss";
             @import "~@/assets/scss/fonts.scss";
             @import "~@/assets/scss/mixins.scss";
             @import "~@/assets/scss/shadows.scss";
@@ -48,6 +49,7 @@ module.exports = {
       scss: {
         prependData: `
             @import "~@/assets/scss/colors.scss";
+            @import "~@/assets/scss/reset.scss";
             @import "~@/assets/scss/fonts.scss";
             @import "~@/assets/scss/mixins.scss";
             @import "~@/assets/scss/shadows.scss";

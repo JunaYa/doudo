@@ -3,7 +3,7 @@
     <div class="container">
       <div class="scalable">
         <div class="content">
-          side
+          <Aside />
         </div>
         <div class="separator"><i></i><i></i></div>
       </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts">
+import Aside from '@/pages/aside/Aside.vue';
 import TodoVIew from '@/pages/todo/TodoView.vue';
 import { Vue, Component } from 'vue-property-decorator';
 import { Mutation } from 'vuex-class';
@@ -25,6 +26,7 @@ const namespace: string = 'setting';
 
 @Component({
   components: {
+    Aside,
     TodoVIew
   }
 })
