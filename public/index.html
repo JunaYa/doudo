@@ -22,14 +22,4 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  <script type="text/html">
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then((reg) => {
-              console.log('Service worker registered.', reg);
-            });
-      });
-    }
-  </script>
 </html>

@@ -62,18 +62,24 @@ module.exports = {
   // 是否为 Babel 或 TypeScript 使用 thread-loader
   parallel: process.env.NODE_ENV === 'production',
 
-  // chainWebpack: config => {
-  // eslint
-  // config.module.rule('eslint');
-  // config.module.rule('eslint').use('eslint-loader');
+  chainWebpack: config => {
+    config.plugin('html').tap(args => {
+      return args;
+    });
+    // eslint;
+    config.module.rule('eslint');
+    config.module.rule('eslint').use('eslint-loader');
 
-  // ts
-  // config.module.rule('ts');
-  // config.module.rule('ts').use('ts-loader');
-  // config.module.rule('ts').use('babel-loader');
-  // config.module.rule('ts').use('cache-loader');
-  // config.plugin('fork-ts-checker');
-  // },
+    // ts;
+    config.module.rule('ts');
+    config.module.rule('ts').use('ts-loader');
+    config.module.rule('ts').use('babel-loader');
+    config.module.rule('ts').use('cache-loader');
+    config.plugin('fork-ts-checker');
+
+    // pwa
+    config.plugin('workbox');
+  },
 
   pluginOptions: {
     i18n: {
@@ -81,6 +87,36 @@ module.exports = {
       fallbackLocale: 'zh',
       localeDir: 'i18n/locales',
       enableInSFC: true
+    }
+  },
+
+  pwa: {
+    name: 'Doudo',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+
+    // configure the workbox plugin
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: './src/sw.js'
+      // ...other Workbox options...
+    },
+    iconPaths: {
+      favicon32: 'img/icons/favicon-32x32.png',
+      favicon16: 'img/icons/favicon-16x16.png',
+      appleTouchIcon: 'img/icons/apple-touch-icon-152x152.png',
+      maskIcon: 'img/icons/safari-pinned-tab.svg',
+      msTileImage: 'img/icons/msapplication-icon-144x144.png'
+    },
+    manifestOptions: {
+      name: 'Doudo',
+      short_name: 'Duodu',
+      start_url: './index.html',
+      display: 'standalone',
+      theme_color: '#4DBA87'
     }
   }
 };

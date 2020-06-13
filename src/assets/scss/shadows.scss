@@ -1,3 +1,5 @@
+// copyright https://codepen.io/junaya/pen/XWXrRLe
+
 @function outset-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
 	@return 0.3rem 0.3rem 0.5rem $darker-color,
 		-0.2rem -0.2rem 0.4rem $lighter-color;
