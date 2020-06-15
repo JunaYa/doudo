@@ -63,22 +63,17 @@ module.exports = {
   parallel: process.env.NODE_ENV === 'production',
 
   chainWebpack: config => {
-    config.plugin('html').tap(args => {
-      return args;
-    });
     // eslint;
     config.module.rule('eslint');
     config.module.rule('eslint').use('eslint-loader');
-
     // ts;
     config.module.rule('ts');
     config.module.rule('ts').use('ts-loader');
     config.module.rule('ts').use('babel-loader');
     config.module.rule('ts').use('cache-loader');
     config.plugin('fork-ts-checker');
-
     // pwa
-    config.plugin('workbox');
+    // config.plugin('workbox');
   },
 
   pluginOptions: {
