@@ -6,7 +6,7 @@ import { actions } from './actions';
 import { RootState } from '../../types';
 import { TodoState } from './types';
 
-const namespaced: boolean = true;
+const namespaced = true;
 
 export const todo: Module<TodoState, RootState> = {
   namespaced,

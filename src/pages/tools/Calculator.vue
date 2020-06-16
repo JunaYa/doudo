@@ -143,10 +143,10 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component({})
 export default class Calculator extends Vue {
-  equation: string = '0';
-  isDecimalAdded: boolean = false;
-  isOperatorAdded: boolean = false;
-  isStarted: boolean = false;
+  equation = '0';
+  isDecimalAdded = false;
+  isOperatorAdded = false;
+  isStarted = false;
 
   /**
    * Check if the character is + / - / × / ÷
@@ -200,11 +200,11 @@ export default class Calculator extends Vue {
    * When pressed '='
    */
   calculate() {
-    let result = this.equation
+    const result = this.equation
       .replace(new RegExp('×', 'g'), '*')
       .replace(new RegExp('÷', 'g'), '/');
 
-    let ans: number = eval(result);
+    const ans: number = eval(result);
     if (ans < 1.0e9) {
       this.equation = parseFloat(ans.toFixed(9)).toString();
     } else {

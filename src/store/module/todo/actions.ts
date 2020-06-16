@@ -24,7 +24,7 @@ export const actions: ActionTree<TodoState, RootState> = {
     if (state.undoList.length === 0) return;
     try {
       const action = state.undoList.pop();
-      let params = JSON.parse(action || '');
+      const params = JSON.parse(action || '');
       dispatch(params.action, { ...params.data, from: T.UNDO });
     } catch (error) {
       console.warn('UNDO error:::', error);
@@ -35,7 +35,7 @@ export const actions: ActionTree<TodoState, RootState> = {
     if (state.undoList.length === 0) return;
     try {
       const action = state.undoList.pop();
-      let params = JSON.parse(action || '');
+      const params = JSON.parse(action || '');
       dispatch(params.action, { ...params.data, from: T.UNDO });
     } catch (error) {
       console.warn('UNDO error:::', error);
@@ -46,7 +46,7 @@ export const actions: ActionTree<TodoState, RootState> = {
     if (state.redoList.length === 0) return;
     try {
       const action = state.redoList.pop();
-      let params = JSON.parse(action || '');
+      const params = JSON.parse(action || '');
       dispatch(params.action, { ...params.data, from: T.REDO });
     } catch (error) {
       console.warn('UNDO error:::', error);

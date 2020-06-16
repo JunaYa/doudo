@@ -6,7 +6,7 @@ import { mutations } from './mutations';
 import { RootState } from '../../types';
 import { Config } from './types';
 
-const namespaced: boolean = true;
+const namespaced = true;
 
 export const setting: Module<Config, RootState> = {
   namespaced,

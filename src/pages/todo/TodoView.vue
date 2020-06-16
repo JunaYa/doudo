@@ -36,7 +36,7 @@ import { Todo } from '@/store/module/todo/types';
 
 import TodoItem from '@/pages/todo/TodoItem.vue';
 
-const namespace: string = 'todo';
+const namespace = 'todo';
 
 @Component({
   components: {

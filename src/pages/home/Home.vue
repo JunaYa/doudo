@@ -22,7 +22,7 @@ import { Mutation } from 'vuex-class';
 /* eslint-disable no-unused-vars */
 import { Structure } from '@/store/module/setting/types';
 
-const namespace: string = 'setting';
+const namespace = 'setting';
 
 @Component({
   components: {
@@ -31,8 +31,8 @@ const namespace: string = 'setting';
   }
 })
 export default class Home extends Vue {
-  private startX: number = 0;
-  private startWidth: number = 0;
+  private startX = 0;
+  private startWidth = 0;
 
   @Mutation('get_structure', { namespace }) getStructure: any;
   @Mutation('update_structure', { namespace }) updateStructure: any;

@@ -156,7 +156,7 @@ interface form {
 }
 @Component
 export default class SingIn extends Vue {
-  isSignin: boolean = false;
+  isSignin = false;
 
   formSignIn: form = {
     nickname: '',

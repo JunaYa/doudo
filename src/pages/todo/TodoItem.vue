@@ -46,8 +46,8 @@ export default class TodoItem extends Vue {
   @Prop({ type: Object, default: () => {} })
   item!: Todo;
 
-  editType: string = 'idle';
-  isExpanded: boolean = false;
+  editType = 'idle';
+  isExpanded = false;
 
   onBlur() {
     this.isExpanded = false;
