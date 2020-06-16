@@ -63,15 +63,27 @@ module.exports = {
   parallel: process.env.NODE_ENV === 'production',
 
   chainWebpack: config => {
+    config.plugin('html').tap(args => {
+      args[0].template = './public/index.html';
+      return args;
+    });
+
+    // svg
+    const svgRule = config.module.rule('svg');
+    svgRule.uses.clear();
+    svgRule.use('vue-svg-loader').loader('vue-svg-loader');
+
     // eslint;
     config.module.rule('eslint');
-    config.module.rule('eslint').use('eslint-loader');
+    // config.module.rule('eslint').use('eslint-loader');
+
     // ts;
     config.module.rule('ts');
     config.module.rule('ts').use('ts-loader');
     config.module.rule('ts').use('babel-loader');
     config.module.rule('ts').use('cache-loader');
     config.plugin('fork-ts-checker');
+
     // pwa
     // config.plugin('workbox');
   },
@@ -83,35 +95,35 @@ module.exports = {
       localeDir: 'i18n/locales',
       enableInSFC: true
     }
-  },
-
-  pwa: {
-    name: 'Doudo',
-    themeColor: '#4DBA87',
-    msTileColor: '#000000',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-
-    // configure the workbox plugin
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: './src/sw.js'
-      // ...other Workbox options...
-    },
-    iconPaths: {
-      favicon32: 'img/icons/favicon-32x32.png',
-      favicon16: 'img/icons/favicon-16x16.png',
-      appleTouchIcon: 'img/icons/apple-touch-icon-152x152.png',
-      maskIcon: 'img/icons/safari-pinned-tab.svg',
-      msTileImage: 'img/icons/msapplication-icon-144x144.png'
-    },
-    manifestOptions: {
-      name: 'Doudo',
-      short_name: 'Duodu',
-      start_url: './index.html',
-      display: 'standalone',
-      theme_color: '#4DBA87'
-    }
   }
+
+  // pwa: {
+  //   name: 'Doudo',
+  //   themeColor: '#4DBA87',
+  //   msTileColor: '#000000',
+  //   appleMobileWebAppCapable: 'yes',
+  //   appleMobileWebAppStatusBarStyle: 'black',
+
+  //   // configure the workbox plugin
+  //   workboxPluginMode: 'InjectManifest',
+  //   workboxOptions: {
+  //     // swSrc is required in InjectManifest mode.
+  //     swSrc: './src/sw.js'
+  //     // ...other Workbox options...
+  //   },
+  //   iconPaths: {
+  //     favicon32: 'img/icons/favicon-32x32.png',
+  //     favicon16: 'img/icons/favicon-16x16.png',
+  //     appleTouchIcon: 'img/icons/apple-touch-icon-152x152.png',
+  //     maskIcon: 'img/icons/safari-pinned-tab.svg',
+  //     msTileImage: 'img/icons/msapplication-icon-144x144.png'
+  //   },
+  //   manifestOptions: {
+  //     name: 'Doudo',
+  //     short_name: 'Duodu',
+  //     start_url: './index.html',
+  //     display: 'standalone',
+  //     theme_color: '#4DBA87'
+  //   }
+  // }
 };

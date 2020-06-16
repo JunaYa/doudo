@@ -958,10 +958,10 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/webpack-env@^1.15.1":
+"@types/webpack-env@^1.15.2":
   version "1.15.2"
-  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.15.2.tgz#927997342bb9f4a5185a86e6579a0a18afc33b0a"
-  integrity sha512-67ZgZpAlhIICIdfQrB5fnDvaKFcDxpKibxznfYRVAT4mQE41Dido/3Ty+E3xGBmTogc5+0Qb8tWhna+5B8z1iQ==
+  resolved "https://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.15.2.tgz#927997342bb9f4a5185a86e6579a0a18afc33b0a"
+  integrity sha1-knmXNCu59KUYWobmV5oKGK/DOwo=
 
 "@types/webpack-sources@*":
   version "1.4.0"
@@ -984,10 +984,10 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@typescript-eslint/eslint-plugin@^2.26.0":
+"@typescript-eslint/eslint-plugin@^2.33.0":
   version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.34.0.tgz#6f8ce8a46c7dea4a6f1d171d2bb8fbae6dac2be9"
-  integrity sha512-4zY3Z88rEE99+CNvTbXSyovv2z9PNOVffTWD2W8QF5s2prBQtwN2zadqERcrHpcR7O/+KMI3fcTAmUUhK/iQcQ==
+  resolved "https://registry.npm.taobao.org/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-2.34.0.tgz?cache=0&sync_timestamp=1592273224634&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Feslint-plugin%2Fdownload%2F%40typescript-eslint%2Feslint-plugin-2.34.0.tgz#6f8ce8a46c7dea4a6f1d171d2bb8fbae6dac2be9"
+  integrity sha1-b4zopGx96kpvHRcdK7j7rm2sK+k=
   dependencies:
     "@typescript-eslint/experimental-utils" "2.34.0"
     functional-red-black-tree "^1.0.1"
@@ -1004,10 +1004,10 @@
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^2.26.0":
+"@typescript-eslint/parser@^2.33.0":
   version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.34.0.tgz#50252630ca319685420e9a39ca05fe185a256bc8"
-  integrity sha512-03ilO0ucSD0EPTw2X4PntSIRFtDPWjrVq7C3/Z3VQHRC7+13YB55rcJI3Jt+YgeHbjUdJPcPa7b23rXCBokuyA==
+  resolved "https://registry.npm.taobao.org/@typescript-eslint/parser/download/@typescript-eslint/parser-2.34.0.tgz?cache=0&sync_timestamp=1592273119243&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Fparser%2Fdownload%2F%40typescript-eslint%2Fparser-2.34.0.tgz#50252630ca319685420e9a39ca05fe185a256bc8"
+  integrity sha1-UCUmMMoxloVCDpo5ygX+GFola8g=
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
     "@typescript-eslint/experimental-utils" "2.34.0"
@@ -1165,13 +1165,13 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.3.1"
 
-"@vue/cli-plugin-typescript@~4.3.0":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-typescript/-/cli-plugin-typescript-4.3.1.tgz#dd403b78680376b8682f90de3db851ae5ecc71e8"
-  integrity sha512-Uos7MTqG0btNMMhZdgLTPx24fqiiHhqz0Bow2rTeNa0piDeSjiQdyq0vgVKqJOLUu8zkvmG2jKUr15QQ0+yobQ==
+"@vue/cli-plugin-typescript@~4.4.0":
+  version "4.4.4"
+  resolved "https://registry.npm.taobao.org/@vue/cli-plugin-typescript/download/@vue/cli-plugin-typescript-4.4.4.tgz#bac7a4d33bc40df48ef1e49310183de029976e64"
+  integrity sha1-usek0zvEDfSO8eSTEBg94CmXbmQ=
   dependencies:
-    "@types/webpack-env" "^1.15.1"
-    "@vue/cli-shared-utils" "^4.3.1"
+    "@types/webpack-env" "^1.15.2"
+    "@vue/cli-shared-utils" "^4.4.4"
     cache-loader "^4.1.0"
     fork-ts-checker-webpack-plugin "^3.1.1"
     globby "^9.2.0"
@@ -8630,10 +8630,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@~3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+typescript@~3.9.3:
+  version "3.9.5"
+  resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.9.5.tgz?cache=0&sync_timestamp=1592203664343&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
+  integrity sha1-WG8NujAM3ovlLdGsT34QCcGxPzY=
 
 uglify-js@3.4.x:
   version "3.4.10"
@@ -8928,10 +8928,10 @@ vue-loader@^15.8.3:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-property-decorator@^8.4.1:
+vue-property-decorator@^8.4.2:
   version "8.5.0"
-  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.5.0.tgz#9af64c5301413f4732640cc0d046879417e64994"
-  integrity sha512-0RueJN/shPWf5gM8GLUD6bYiXr+q7bu+S1tgr7XwgBSng10H5DLQjVYfJ5XHAOPFo7fBfY1nxljBQ95qryAiWg==
+  resolved "https://registry.npm.taobao.org/vue-property-decorator/download/vue-property-decorator-8.5.0.tgz#9af64c5301413f4732640cc0d046879417e64994"
+  integrity sha1-mvZMUwFBP0cyZAzA0EaHlBfmSZQ=
 
 vue-router@^3.3.3:
   version "3.3.3"
