@@ -8,6 +8,11 @@ export const initTheme: Theme = {
   backgroundColor: '#FFFFFF'
 };
 
+export const initConfig: Config = {
+  structure: initStructure,
+  theme: initTheme
+};
+
 export const state: Config = {
   structure: initStructure,
 

@@ -1,7 +1,10 @@
 import { Todo } from '@/store/module/todo/types';
-import { Structure, Theme } from '@/store/module/setting/types';
-import { initStructure, initTheme } from '@/store/module/setting/state';
-import { Store } from 'vuex';
+import { Config, Structure, Theme } from '@/store/module/setting/types';
+import {
+  initConfig,
+  initStructure,
+  initTheme
+} from '@/store/module/setting/state';
 
 const TODO_LIST = 'todo_list';
 const SETTING_CONFIG = 'setting_config';
@@ -28,6 +31,32 @@ export function getTodoList(): Todo[] {
  */
 export function saveTodoList(data: Todo[]): void {
   window.localStorage.setItem(TODO_LIST, JSON.stringify(data));
+}
+
+/**
+ * 获取 '全局' 配置
+ */
+export function getSettingConfig(): Config {
+  try {
+    const data = window.localStorage.getItem(SETTING_CONFIG);
+    if (!data) return initConfig;
+    return JSON.parse(data) as Config;
+  } catch (error) {
+    console.log('SETTING_CONFIG', error);
+    return initConfig;
+  }
+}
+
+/**
+ * 设置 '全局' 配置
+ * @param data
+ */
+export function setSettingConfig(data: Config) {
+  try {
+    window.localStorage.setItem(SETTING_CONFIG, JSON.stringify(data));
+  } catch (error) {
+    console.log('SETTING_CONFIG', error);
+  }
 }
 
 /**
