@@ -75,7 +75,7 @@ module.exports = {
 
     // eslint;
     config.module.rule('eslint');
-    // config.module.rule('eslint').use('eslint-loader');
+    config.module.rule('eslint').use('eslint-loader');
 
     // ts;
     config.module.rule('ts');

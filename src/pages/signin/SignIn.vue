@@ -149,7 +149,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 import api from '@/api/index.ts';
 
-interface form {
+interface Form {
   nickname: string;
   password: string;
   email?: string;
@@ -158,12 +158,12 @@ interface form {
 export default class SingIn extends Vue {
   isSignin = false;
 
-  formSignIn: form = {
+  formSignIn: Form = {
     nickname: '',
     password: ''
   };
 
-  formSignUp: form = {
+  formSignUp: Form = {
     nickname: '',
     password: '',
     email: ''

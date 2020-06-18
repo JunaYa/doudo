@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-function httpGET(url: string, params: any) {
+function httpGET(url: string, params: string) {
   return axios({
     method: 'GET',
     url,
@@ -8,7 +8,7 @@ function httpGET(url: string, params: any) {
   });
 }
 
-function httpPOST(url: string, data: any) {
+function httpPOST(url: string, data: string) {
   return axios({
     method: 'POST',
     url,
@@ -16,7 +16,7 @@ function httpPOST(url: string, data: any) {
   });
 }
 
-function httpDELETE(url: string, data: any) {
+function httpDELETE(url: string, data: string) {
   return axios({
     method: 'DELETE',
     url,

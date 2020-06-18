@@ -1,5 +1,5 @@
 import { ActionTree } from 'vuex';
-import { TodoState, Todo } from './types';
+import { TodoState } from './types';
 import { RootState } from '../../types';
 import { getTodoList } from '@/utils/storage';
 
@@ -12,23 +12,12 @@ const DODO = {
 };
 
 export const actions: ActionTree<TodoState, RootState> = {
-  async [T.GET_TODO_LIST]({ commit, state }) {
+  async [T.GET_TODO_LIST]({ commit }) {
     return new Promise(resolve => {
       const data = getTodoList();
       commit(T.UPDATE, data);
       resolve(data);
     });
-  },
-
-  [T.UNDO]({ dispatch, state }) {
-    if (state.undoList.length === 0) return;
-    try {
-      const action = state.undoList.pop();
-      const params = JSON.parse(action || '');
-      dispatch(params.action, { ...params.data, from: T.UNDO });
-    } catch (error) {
-      console.warn('UNDO error:::', error);
-    }
   },
 
   [T.UNDO]({ dispatch, state }) {

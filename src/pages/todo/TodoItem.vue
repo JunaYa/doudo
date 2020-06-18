@@ -43,7 +43,7 @@ import { Todo } from '@/store/module/todo/types';
   }
 })
 export default class TodoItem extends Vue {
-  @Prop({ type: Object, default: () => {} })
+  @Prop({ type: Object, default: {} })
   item!: Todo;
 
   editType = 'idle';
