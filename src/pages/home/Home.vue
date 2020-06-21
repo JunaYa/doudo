@@ -34,7 +34,9 @@ export default class Home extends Vue {
   private startX = 0;
   private startWidth = 0;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Mutation('get_structure', { namespace }) getStructure: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Mutation('update_structure', { namespace }) updateStructure: any;
 
   get structure(): Structure {

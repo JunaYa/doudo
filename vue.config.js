@@ -73,9 +73,9 @@ module.exports = {
     svgRule.uses.clear();
     svgRule.use('vue-svg-loader').loader('vue-svg-loader');
 
-    // eslint;
+    // // eslint;
     config.module.rule('eslint');
-    config.module.rule('eslint').use('eslint-loader');
+    // config.module.rule('eslint').use('eslint-loader');
 
     // ts;
     config.module.rule('ts');

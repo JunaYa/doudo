@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { httpPOST } from '@/api/http/base.ts';
 import endpoint from '@/api/endpoint/users.ts';
 

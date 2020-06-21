@@ -44,11 +44,17 @@ const namespace = 'todo';
   }
 })
 export default class TodoView extends Vue {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('undo', { namespace }) undo: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('redo', { namespace }) redo: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('add', { namespace }) add: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('remove', { namespace }) remove: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('update', { namespace }) update: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Action('getTodoList', { namespace }) getTodoList: any;
 
   get list(): Todo[] {

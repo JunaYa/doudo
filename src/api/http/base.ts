@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-function httpGET(url: string, params: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function httpGET(url: string, params?: any) {
   return axios({
     method: 'GET',
     url,
@@ -8,7 +9,8 @@ function httpGET(url: string, params: string) {
   });
 }
 
-function httpPOST(url: string, data: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function httpPOST(url: string, data: any) {
   return axios({
     method: 'POST',
     url,
@@ -16,7 +18,8 @@ function httpPOST(url: string, data: string) {
   });
 }
 
-function httpDELETE(url: string, data: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function httpDELETE(url: string, data?: any) {
   return axios({
     method: 'DELETE',
     url,
