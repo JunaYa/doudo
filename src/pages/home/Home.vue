@@ -121,13 +121,13 @@ export default class Home extends Vue {
   width: 8px;
   height: 100%;
   background-color: #ffffff;
-  box-shadow: ridge-shadow();
+  box-shadow: raised-shadow();
   cursor: col-resize;
 }
 .scalable .separator i {
   display: inline-block;
   height: 14px;
-  width: 1px;
+  width: 4px;
   background-color: #e9e9e9;
 }
 .scalable .content {

@@ -187,6 +187,7 @@ export default class SingIn extends Vue {
       .login(this.formSignIn)
       .then(res => {
         console.log(res);
+        this.$router.push({ name: 'Home' });
       })
       .catch(error => {
         console.log(error);
