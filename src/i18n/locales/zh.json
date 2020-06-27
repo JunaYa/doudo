@@ -15,5 +15,18 @@
             "email": "邮箱",
             "password": "密码"
         }
+    },
+    "aside": {
+        "inbox": "收件箱",
+        "today": "今天",
+        "upcomming": "计划",
+        "anytime": "随时",
+        "someday": "某天",
+        "logbook": "日志薄",
+        "trash": "回收箱"
+    },
+    "setting": {
+        "theme": "主题",
+        "language": "语言"
     }
 }

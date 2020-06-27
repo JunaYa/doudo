@@ -63,6 +63,9 @@ module.exports = {
   parallel: process.env.NODE_ENV === 'production',
 
   chainWebpack: config => {
+    // 修复HMR
+    config.resolve.symlinks(true);
+
     config.plugin('html').tap(args => {
       args[0].template = './public/index.html';
       return args;
@@ -72,6 +75,21 @@ module.exports = {
     const svgRule = config.module.rule('svg');
     svgRule.uses.clear();
     svgRule.use('vue-svg-loader').loader('vue-svg-loader');
+
+    // const svgRule = config.module.rule("svg");
+    // svgRule.uses.clear();
+    // svgRule.exclude.add(/node_modules/);
+    // svgRule
+    //   .test(/\.svg$/)
+    //   .use("svg-sprite-loader")
+    //   .loader("svg-sprite-loader")
+    //   .options({
+    //     symbolId: "icon-[name]"
+    //   });
+
+    // const imagesRule = config.module.rule("images");
+    // imagesRule.exclude.add(resolve("src/icons"));
+    // config.module.rule("images").test(/\.(png|jpe?g|gif|svg)(\?.*)?$/);
 
     // // eslint;
     config.module.rule('eslint');

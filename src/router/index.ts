@@ -22,8 +22,13 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/calculator',
-    name: 'calculator',
+    name: 'ToolsCalculator',
     component: () => import('@/pages/tools/Calculator.vue')
+  },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: () => import('@/pages/setting/Setting.vue')
   }
 ];
 

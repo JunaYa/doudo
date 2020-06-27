@@ -15,5 +15,18 @@
             "email": "Email",
             "password": "Password"
         }
+    },
+    "aside": {
+        "inbox": "Inbox",
+        "today": "Today",
+        "upcomming": "Upcomming",
+        "anytime": "Anytime",
+        "someday": "Someday",
+        "logbook": "Logbook",
+        "trash": "Trash"
+    },
+    "setting": {
+        "theme": "Theme",
+        "language": "Language"
     }
 }
