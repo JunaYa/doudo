@@ -97,6 +97,10 @@ export default class TodoView extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.layout-todo {
+  overflow: auto;
+}
+
 .btn-add-wrapper {
   position: fixed;
   bottom: 1rem;

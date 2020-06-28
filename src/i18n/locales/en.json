@@ -23,7 +23,9 @@
         "anytime": "Anytime",
         "someday": "Someday",
         "logbook": "Logbook",
-        "trash": "Trash"
+        "trash": "Trash",
+        "new-area": "New Area",
+        "setting": "Setting"
     },
     "setting": {
         "theme": "Theme",

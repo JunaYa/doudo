@@ -32,6 +32,37 @@
     justify-content: space-evenly;
 }
 
+@mixin f-c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin f-c-s {
+    @include f-c;
+    justify-content: flex-start;
+}
+
+@mixin f-c-b {
+    @include f-c;
+    justify-content: space-between;
+}
+
+@mixin f-c-c {
+    @include f-c;
+    justify-content: center;
+}
+
+@mixin f-c-a {
+    @include f-c;
+    justify-content: space-around;
+}
+
+@mixin f-c-e {
+    @include f-c;
+    justify-content: space-evenly;
+}
+
 // button
 $button-height: 48px;
 

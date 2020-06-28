@@ -23,7 +23,9 @@
         "anytime": "随时",
         "someday": "某天",
         "logbook": "日志薄",
-        "trash": "回收箱"
+        "trash": "回收箱",
+        "new-area": "添加新区域",
+        "setting": "设置"
     },
     "setting": {
         "theme": "主题",

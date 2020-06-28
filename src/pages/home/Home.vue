@@ -108,6 +108,7 @@ export default class Home extends Vue {
 }
 .content {
   padding: 20px;
+  height: 100vh;
 }
 .scalable .separator {
   display: flex;
@@ -131,7 +132,7 @@ export default class Home extends Vue {
   background-color: #e9e9e9;
 }
 .scalable .content {
-  padding-right: 14px;
+  padding-right: 18px;
 }
 
 @media screen and (max-width: 640px) {
