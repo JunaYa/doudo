@@ -29,6 +29,8 @@
     },
     "setting": {
         "theme": "Theme",
-        "language": "Language"
+        "language": "Language",
+        "zh": "Chinese",
+        "en": "English"
     }
 }

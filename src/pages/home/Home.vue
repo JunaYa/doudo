@@ -35,8 +35,7 @@ export default class Home extends Vue {
   private startWidth = 0;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Mutation('get_structure', { namespace }) getStructure: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @Mutation('initSetting', { namespace }) initSetting: any;
   @Mutation('update_structure', { namespace }) updateStructure: any;
 
   get structure(): Structure {
@@ -44,7 +43,9 @@ export default class Home extends Vue {
   }
 
   mounted() {
-    this.getStructure();
+    this.initSetting();
+    this.$i18n.locale = this.$store.getters['setting/language'];
+
     this.startWidth = this.structure.separator || this.getScalableDivWidth();
     const scalable = document.querySelector('.scalable') as HTMLDivElement;
     scalable.style.width = this.startWidth + 'px';

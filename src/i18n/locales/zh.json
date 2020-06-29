@@ -29,6 +29,8 @@
     },
     "setting": {
         "theme": "主题",
-        "language": "语言"
+        "language": "语言",
+        "zh": "中文",
+        "en": "英文"
     }
 }

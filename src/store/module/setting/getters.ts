@@ -7,6 +7,10 @@ export const getters: GetterTree<Config, RootState> = {
     return state.structure;
   },
 
+  language(state): string {
+    return state.language;
+  },
+
   theme(state): Theme {
     return state.theme;
   }

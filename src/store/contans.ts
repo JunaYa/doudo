@@ -17,6 +17,8 @@ export default {
 
   // setting
 
+  INIT_SETTING: 'initSetting',
+
   UPDATE_SETTING: 'update_setting',
 
   GET_SETTING: 'get_setting',
@@ -27,5 +29,9 @@ export default {
 
   UPDATE_STRUCTURE: 'update_structure',
 
-  GET_STRUCTURE: 'get_structure'
+  GET_STRUCTURE: 'get_structure',
+
+  UPDATE_LANGUAGE: 'updateLanguage',
+
+  GET_LANGUAGE: 'getLanguage'
 };

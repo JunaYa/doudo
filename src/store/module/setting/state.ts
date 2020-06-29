@@ -10,11 +10,16 @@ export const initTheme: Theme = {
 
 export const initConfig: Config = {
   structure: initStructure,
+
+  language: 'zh',
+
   theme: initTheme
 };
 
 export const state: Config = {
   structure: initStructure,
+
+  language: 'zh',
 
   theme: initTheme
 };

@@ -8,5 +8,6 @@ export interface Structure {
 
 export interface Config {
   structure: Structure;
+  language: string;
   theme: Theme;
 }

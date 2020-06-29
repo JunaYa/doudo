@@ -10,6 +10,7 @@ const TODO_LIST = 'todo_list';
 const SETTING_CONFIG = 'setting_config';
 const STRUCTURE_CONFIG = 'structure_config';
 const THEME_CONFIG = 'theme_config';
+const LANGUAGE = 'language';
 
 /**
  * 获取 todo list
@@ -106,5 +107,30 @@ export function setThemeConfig(data: Theme) {
     window.localStorage.setItem(THEME_CONFIG, JSON.stringify(data));
   } catch (error) {
     console.log('THEME_CONFIG', error);
+  }
+}
+
+/**
+ * 设置语言
+ */
+export function setLanguageConfig(data: string) {
+  try {
+    window.localStorage.setItem(LANGUAGE, JSON.stringify(data));
+  } catch (error) {
+    console.log('LANGUAGE_CONFIG', error);
+  }
+}
+
+/**
+ * 获取语言
+ */
+export function getLanguageConfig() {
+  try {
+    const data = window.localStorage.getItem(LANGUAGE);
+    if (!data) return 'zh';
+    return data;
+  } catch (error) {
+    console.log('LANGUAGE', error);
+    return 'zh';
   }
 }

@@ -1,7 +1,12 @@
 <template>
   <label class="switch-alt">
     <span class="sr-only">Switch</span>
-    <input class="switch-alt__input" type="checkbox" :checked="checked" />
+    <input
+      class="switch-alt__input"
+      type="checkbox"
+      :checked="checked"
+      @change="$emit('change', !checked)"
+    />
     <span class="switch-alt__slider"></span>
   </label>
 </template>
@@ -10,7 +15,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component({})
-export default class Switch extends Vue {
+export default class USwitch extends Vue {
   @Prop({ type: Boolean, default: false })
   checked!: boolean;
 }

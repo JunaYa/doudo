@@ -4,12 +4,20 @@ import {
   setThemeConfig,
   getThemeConfig,
   setStructureConfig,
-  getStructureConfig
+  getStructureConfig,
+  setLanguageConfig,
+  getLanguageConfig
 } from '@/utils/storage';
 
 import T from '../../contans';
 
 export const mutations: MutationTree<Config> = {
+  [T.INIT_SETTING](state) {
+    state.theme = getThemeConfig();
+    state.structure = getStructureConfig();
+    state.language = getLanguageConfig();
+  },
+
   [T.UPDATE_THEME](state, theme: Theme) {
     state.theme = theme;
     setThemeConfig(theme);
@@ -26,5 +34,14 @@ export const mutations: MutationTree<Config> = {
 
   [T.GET_STRUCTURE](state) {
     state.structure = getStructureConfig();
+  },
+
+  [T.UPDATE_LANGUAGE](state, language: string) {
+    state.language = language;
+    setLanguageConfig(language);
+  },
+
+  [T.GET_LANGUAGE](state) {
+    state.language = getLanguageConfig();
   }
 };
